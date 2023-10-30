@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notes-app-deployment
+spec:
+  replicas: 3  # Adjust as needed
+  selector:
+    matchLabels:
+      app: notes-app
+  template:
+    metadata:
+      labels:
+        app: notes-app
+    spec:
+      containers:
+      - name: notes-app-container
+        image: prashantsagar7/notes:latest  # Replace with your Docker image name and tag
+        ports:
+        - containerPort: 3000
