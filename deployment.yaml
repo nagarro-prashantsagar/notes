@@ -12,6 +12,9 @@ spec:
       labels:
         app: notes-app
     spec:
+      tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        effect: NoSchedule
       containers:
       - name: notes-app-container
         image: prashantsagar7/my-notes-app:latest
@@ -24,6 +27,3 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
-        tolerations:
-        - key: node-role.kubernetes.io/control-plane
-          effect: NoSchedule
