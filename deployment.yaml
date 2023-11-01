@@ -12,11 +12,6 @@ spec:
       labels:
         app: notes-app
     spec:
-      nodeSelector:
-        !node-role.kubernetes.io/control-plane: "true"
-      tolerations:
-      - key: node-role.kubernetes.io/control-plane
-        operator: Exists
       containers:
       - name: notes-app-container
         image: prashantsagar7/my-notes-app:latest
